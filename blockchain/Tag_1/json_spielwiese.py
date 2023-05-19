@@ -99,3 +99,9 @@ print(response["results"][0]["name"]["first"])
 
 # Sue:
 print(json.dumps(dict_random_user, indent=4))
+
+btc_response = requests.get("https://blockchain.info/ticker")
+btc_dict = json.loads(btc_response.text)
+print("1 BTC in EUR:", btc_dict["EUR"]["last"], btc_dict["EUR"]["symbol"])
+print("1 BTC in GBP:", btc_dict["GBP"]["last"], btc_dict["GBP"]["symbol"])
+print("1 BTC in USD:", btc_dict["USD"]["last"], btc_dict["USD"]["symbol"])
