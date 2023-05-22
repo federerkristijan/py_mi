@@ -40,9 +40,22 @@ print(computed_hash) # 2d2da19605a34e037dbe82173f98a992a530a5fdd53dad882f570d4ba
 #
 
 # Difficulty festlegen
-difficulty = 2
+difficulty = 4
 # Nonce
 nonce = 0 # quasi eine unbekannte Variable, die iLdZ um 1 erhöht wird um ggfs. einen validen Hash zu erzeugen
 
 print(difficulty * "0") # 00
 print("0012345".startswith("00")) # True, also ein valider Hash weil 2 führende Nullen
+
+while not computed_hash.startswith("0" * difficulty): # unsere Bedingung noch nicht erreicht
+
+    # Nonce um 1 erhöhen
+    nonce += 1
+    # neuen Hash generieren in Abhängigkeit der neuen Nonce
+    string_to_hash = "Hallo Welt" + str(nonce)
+    computed_hash = sha256(string_to_hash.encode("utf-8")).hexdigest()
+    # aktuellen Hash ausgeben
+    # print("Aktueller Hash:", computed_hash)
+
+print("Nonce:", nonce)
+print("Gültiger Hash:", computed_hash)
