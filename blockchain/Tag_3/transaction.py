@@ -1,6 +1,8 @@
-class Transaktion:
-    def __init__(self, sender, receiver, amount, time):
+import time
+
+class Transaction:
+    def __init__(self, sender, receiver, amount):
         self.sender = sender,
         self.receiver = receiver,
         self.amount = amount,
-        self.time = time
+        self.time = time.time()

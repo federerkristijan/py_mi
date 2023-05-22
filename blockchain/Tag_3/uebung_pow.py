@@ -12,8 +12,6 @@ from transaction import Transaction
 # Difficulty festlegen
 difficulty = 2
 
-
-
 # Aufgabe 1: Klasse Block erzeugen
 class Block():
     def __init__(self, index, transactions, timestamp, previous_hash):
@@ -46,22 +44,28 @@ blockchain = []
 # mempool (vor-blockchain)
 transaktionen = []
 
-genesis_block = Block(0, "Ich bin Genesis Block", time.time(), "0")
+transaction0 = Transaction("Tia", "Hadas", "5 BTC")
+
+genesis_block = Block(0, transaction0, time.time(), "0")
 
 blockchain.append(genesis_block)
 
-transaktion1 = "Ich bin ein String aber du kannst mich Transkation nennen."
+transaction1 = Transaction("Tia", "Hadas", "5 BTC")
+
+print(genesis_block.hash)
 
 
-transaktionen.append(transaktion1)
+transaktionen.append(transaction1)
 
 # block1 = Block(1, transaktion1, time.time(), previous_hash=genesis_block)
 
-block1 = Block(len(blockchain), transaktion1, time.time(), blockchain[-1].hash)
+block1 = Block(len(blockchain), transaction1, time.time(), blockchain[-1].hash)
 
 blockchain.append(block1)
 
-block2 = Block(len(blockchain), "Ich bin Blockie Block", time.time(), blockchain[-1].hash)
+transaktion2 = Transaction("Hadas", "Tia", "1 BTC")
+
+block2 = Block(len(blockchain), transaktion2, time.time(), blockchain[-1].hash)
 
 blockchain.append(block2)
 
