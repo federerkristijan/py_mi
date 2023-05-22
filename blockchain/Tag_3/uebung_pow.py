@@ -3,6 +3,7 @@
 # Module importieren
 import time
 from hashlib import sha256
+from transaction import Transaction
 
 # Beispiel zu time
 # wieviele Sekunden sind vergangen seit dem 1.1.1970 (Unix-Timestamp)
