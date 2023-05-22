@@ -102,7 +102,7 @@ class Pferd(Tier):
         self.speed = speed
 
     def is_faster_than(self, horse2=None):
-        if horse2= None:
+        if horse2==None:
             print("2. Pferd fehlt")
             raise ValueError
         elif isinstance(horse2,Pferd):
