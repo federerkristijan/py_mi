@@ -12,4 +12,5 @@ class User:
 
         self.name = name
         self.account = account
+        
         self.private_key = private_key
