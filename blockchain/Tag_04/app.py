@@ -27,7 +27,8 @@ for node in nodes:
 # 2 User anlegen (Petra, Bob)
 users = [
     User("Petra", Account("d2bfbb716eec9e29eda06f8a0f6b2b2a522f1eaab71f2228f33aad493ce2eebd"), "12345"), # Wallet-Adresse: Hash von "Petra"
-    User("Bob", Account("cd9fb1e148ccd8442e5aa74904cc73bf6fb54d1d54d333bd596aa9bb4bb4e961"), "54321")
+    User("Bob", Account("cd9fb1e148ccd8442e5aa74904cc73bf6fb54d1d54d333bd596aa9bb4bb4e961"), "54321"),
+    User("Steffi", Account("8abd073a7e85acd773b06728bb6ff223f0d3d0a147f6c6096a4a49692192b26a"), "13579")
 ]
 
 # Users auflisten
@@ -80,7 +81,13 @@ if users[0].account.coins >= 3:
     # Bob 3 Coins hinzufügen
     users[1].account.coins += 3
 
-# beide offene Transaktionen in einen neuen Block minen
+# Bob schickt Steffi 1 Coin
+if users[1].account.coins >= 1:
+    transaktionen.append(Transaction(users[1].account.id, users[2].account.id, 1))
+    users[1].account.coins -= 1
+    users[2].account.coins += 1
+
+# alle offene Transaktionen in einen neuen Block minen
 blockchain.append(Block(len(blockchain), transaktionen, blockchain[-1].hash)) # Hash von "Block1"
 # Mempool leeren
 #transaktionen.clear() # so bitte nicht!!! Weil Referenz statt Kopie
@@ -103,6 +110,7 @@ for block in blockchain:
     print("Index:", block.index)
     print("Hash:", block.hash)
     print("Prev Hash:", block.previous_hash)
+    print("Nonce:", block.nonce)
     print()
     print("Transaktionen:")
     for transaction in block.transactions:
