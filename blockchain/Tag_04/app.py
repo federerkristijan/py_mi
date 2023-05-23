@@ -10,7 +10,7 @@ from transaction import Transaction
 import random # für die Simulation einer zufälligen Node bzw. Miner die den PoW gewonnen hätte
 
 # 3 Nodes erzeugen für unser P2P-Netzwerk
-# HIntergrund. BTC-Adress per Python generieren zB: https://medium.com/coinmonks/bitcoin-address-generation-on-python-e267df5ff3a3
+# Hintergrund. BTC-Adress per Python generieren zB: https://medium.com/coinmonks/bitcoin-address-generation-on-python-e267df5ff3a3
 nodes = [
     Node("127.0.0.1:8000", Account("fea82e10e894419fe2bea7d96296a6d46f50f93f9eeda954ec461b2ed2950b62")), # statisch als SHA-256 für den Wert "Node1"
     Node("127.0.0.1:8001", Account("1ac8aece2a18ced660fef8694b61aac3af08ba875ce3026a160acbc3a3af35fc")),
@@ -49,7 +49,7 @@ blockchain = []
 
 # vorab eine zufällige Node ermitteln für den Reward
 random_node = random.choice(nodes)
-blockchain.append(Block(0, [], "0000000000", "3fa8a90ec59766fb5abd788313751a858455ce3b9fd70e3955557be28075356c")) # Hash aus "Block0"
+blockchain.append(Block(0, [], "0000000000")) # Hash aus "Block0"
 # hier werden neue Coins geschürft
 print("Reward für:", random_node.address)
 # TODO: Reward auszahlen an die jew. Node
@@ -81,7 +81,7 @@ if users[0].account.coins >= 3:
     users[1].account.coins += 3
 
 # beide offene Transaktionen in einen neuen Block minen
-blockchain.append(Block(len(blockchain), transaktionen, blockchain[-1].hash, "211d0bb8cf4f5b5202c2a9b7996e483898644aa24714b1e10edd80a54ba4b560")) # Hash von "Block1"
+blockchain.append(Block(len(blockchain), transaktionen, blockchain[-1].hash)) # Hash von "Block1"
 # Mempool leeren
 #transaktionen.clear() # so bitte nicht!!! Weil Referenz statt Kopie
 transaktionen = []
