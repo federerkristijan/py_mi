@@ -53,3 +53,58 @@ blockchain.append(Block(0, [], "0000000000", "3fa8a90ec59766fb5abd788313751a8584
 # hier werden neue Coins geschürft
 print("Reward für:", random_node.address)
 # TODO: Reward auszahlen an die jew. Node
+
+random_node.account.coins += 100 # vorerst OHNE Transaktionsgebühren
+print()
+
+# offene Transaktionen (Mempool)
+transaktionen = []
+
+# Petra erwerbt 10 Coins von der Node die den ersten Reward erhalten hat
+# sender, receiver, amount
+
+# Check, ob Sender ausreichen Coins zur Verfügung hat für eine bestimmte Transaktion
+# # Double Spending vermeiden
+if random_node.account.coins >= 10:
+    transaktionen.append(Transaction(random_node.account.id, users[0].account.id, 10)) # von Wallet zu Wallet Adresse
+    # der Node 10 Coins abziehen
+    random_node.account.coins -= 10
+    # Petra 10 Coins hinzufügen
+    users[0].account.coins += 10
+
+# weitere Transaktion durchführen: Petra schickt Bob 3 Coins
+if users[0].account.coins >= 3:
+    transaktionen.append(Transaction(users[0].account.id, users[1].account.id, 3)) # von Wallet zu Wallet Adresse
+    # Petra 3 Coins abziehen
+    users[0].account.coins -= 3
+    # Bob 3 Coins hinzufügen
+    users[1].account.coins += 3
+
+# beide offene Transaktionen in einen neuen Block minen
+blockchain.append(Block(len(blockchain), transaktionen, blockchain[-1].hash, "211d0bb8cf4f5b5202c2a9b7996e483898644aa24714b1e10edd80a54ba4b560")) # Hash von "Block1"
+# Mempool leeren
+#transaktionen.clear() # so bitte nicht!!! Weil Referenz statt Kopie
+transaktionen = []
+
+# Gesamtbestand der Coins der BC auflisten
+print("Gesamtbestand der Coins:")
+all_coins = 0
+for user in users:
+    all_coins += user.account.coins
+for node in nodes:
+    all_coins += node.account.coins
+print(all_coins)
+print()
+
+# Blockchain auflisten
+print("Anzahl der Blöcke:", len(blockchain))
+print("Alle Blöcke mit jew. Transaktionen:")
+for block in blockchain:
+    print("Index:", block.index)
+    print("Hash:", block.hash)
+    print("Prev Hash:", block.previous_hash)
+    print()
+    print("Transaktionen:")
+    for transaction in block.transactions:
+        print(transaction.__dict__) # alle Eigenschaften und Werte des Objekts direkt einsehen
+        print()

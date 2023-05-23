@@ -27,7 +27,7 @@ class Block():
 
         while not computed_hash.startswith("0" * difficulty):
             self.nonce += 1
-            string_to_hash = "{0} {1} {2} {3}".format(
+            string_to_hash = "{0} {1} {2} {3} {4}".format(
                 self.index,
                 self.transactions,
                 self.timestamp,
@@ -45,8 +45,9 @@ blockchain = []
 transaktionen = []
 
 transaction0 = Transaction("Tia", "Hadas", "5 BTC")
+transaktionen.append(transaction0)
 
-genesis_block = Block(0, transaction0, time.time(), "0")
+genesis_block = Block(0, transaktionen, time.time(), "0")
 
 blockchain.append(genesis_block)
 
