@@ -81,3 +81,20 @@ print(transaktion2.__dict__) # Transaktionsdaten NACH dem apply()
 # Transaktionen in den Mempool befördern
 transaktionen.append(transaktion1)
 transaktionen.append(transaktion2)
+# neuen Block erzeugen
+blockchain.append(Block(len(blockchain), transaktionen, blockchain[-1].hash, "311e0bb8cf4f5b5202c2a9b7996e483898644aa24714b1e10edd80a54ba4b560"))
+# Mempool leeren
+transaktionen = []
+
+# Blockchain auflisten
+print("Anzahl der Blöcke:", len(blockchain))
+print("Alle Blöcke mit jew. Transaktionen:")
+for block in blockchain:
+    print("Index:", block.index)
+    print("Hash:", block.hash)
+    print("Prev Hash:", block.previous_hash)
+    print()
+    print("Transaktionen:")
+    for transaction in block.transactions:
+        print(transaction.__dict__) # alle Eigenschaften und Werte des Objekts direkt einsehen
+        print()
