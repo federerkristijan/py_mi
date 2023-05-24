@@ -98,3 +98,25 @@ for block in blockchain:
     for transaction in block.transactions:
         print(transaction.__dict__) # alle Eigenschaften und Werte des Objekts direkt einsehen
         print()
+
+# Übungsaufgaben:
+
+# 1) Alle Fahrer OHNE gültige Fahrerlaubnis ermitteln und ausgeben
+print()
+print("OHNE gültige Fahrerlaubnis:")
+for block in blockchain:
+    for transaction in block.transactions:
+        if transaction.is_driver_license_suspended:
+            print("ID:", transaction.driving_license_id)
+            print()
+
+# 2) Suche nach einer ganz bestimmten Füherschein-ID
+# bitte als Klartext übergeben und darauf acnten dass in der BC ja der Hash steht (also achtet auf den entsprechenden Stringvergleich)
+search_item = "Petra123"
+for block in blockchain:
+    for transaction in block.transactions:
+        if sha256(search_item.encode("utf-8")).hexdigest() in transaction.driving_license_id:
+            print("Eintrag zu:", search_item)
+            print("Verstoß:", transaction.violation_type)
+            print("Datum:", transaction.violation_date)
+            print()
