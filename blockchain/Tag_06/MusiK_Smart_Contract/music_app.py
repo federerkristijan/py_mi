@@ -23,14 +23,17 @@ mempool = []
 # zugriff auf Smart Contract erlauben
 smart_contract = SmartContract()
 
+# Artist1 Tracks erzeugen
+
+tracks1 = Tracks(daten_variablen.artist1["track1_id"],
+        daten_variablen.artist1["track1_id"])
+
 # Artist mit Tracks erzeugen
 artist1 = Artist(
+    daten_variablen.artist1["artist1_name"],
     daten_variablen.artist1["artist1_id"],
     daten_variablen.artist1["artist1_account"],
-    [
-        daten_variablen.artist1["track1_id"],
-        daten_variablen.artist1["track1_id"]
-    ]
+
     )
 
 print("Artist1:", artist1.__dict__)

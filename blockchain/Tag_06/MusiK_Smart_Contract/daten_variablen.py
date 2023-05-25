@@ -1,5 +1,6 @@
 # merkeltree for tracks into an album?
 artist1 = {
+    "artist1_name": "Dasa",
     "artist1_id": "5987a4112188ffba0f3e40e84be978b7b77f3119ee51a956e5ca5515fc53f623",
     "track1_id":
     "edda259099c2f436903f05aad086f17d3490db1907a79c3f49823c277e45482d",
