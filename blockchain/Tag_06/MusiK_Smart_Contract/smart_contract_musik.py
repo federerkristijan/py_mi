@@ -10,10 +10,12 @@ class SmartContract:
             # all transactions in a Block
             for transaction in block.transaction:
 
-                # check if artist exist in the existing transactions
-                if current_transactions.artist_id == transaction.artist_id:
+                # check if artist and track exist
+                if current_transactions.artist_id and current_transactions.track_id == True:
 
-                    # check if the record is sold
-                    if current_transactions.track_id == transaction.track_id:
-                        current_transactions.sold = True
+                    # check if buyer has balance is greater or equal 10
+                    if current_transactions.buyer.account.balance >= 10:
 
+                        # check if the record is sold
+                        if current_transactions.track_id == transaction.track_id:
+                            current_transactions.sold = True
