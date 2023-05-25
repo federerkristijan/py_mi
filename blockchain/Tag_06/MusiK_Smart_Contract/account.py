@@ -1,3 +1,4 @@
+# Account == Wallet
 class Account:
 
     def __init__(self, id):

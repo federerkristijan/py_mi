@@ -15,7 +15,7 @@ from hashlib import sha256 # für die Verschlüsselung von Füherschein-ID
 
 import random
 
-# man könnte jetzt Nodes erzegen für ein P2P-Netwerk (Flensburg-Blockchain ist aber idR eine private Blockchain)
+# man könnte jetzt Nodes erzeugen für ein P2P-Netwerk (Flensburg-Blockchain ist aber idR eine private Blockchain)
 # daher KEIN PoW zwingend notwendig
 
 # Blockchain erzeugen
