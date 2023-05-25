@@ -48,4 +48,6 @@ print("Publish date:", publish_date)
 
 
 # transaction1 erzeugen
-# transaction1 = Transaction(Artist, publish_date)
+transaction1 = Transaction(artist1, buyer1, publish_date)
+
+print(transaction1.__dict__)

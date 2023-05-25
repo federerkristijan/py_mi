@@ -4,12 +4,13 @@
 
 class Transaction:
 
-    def __init__(self, artist_id, track_id, publish_date, buyer_id):
+    def __init__(self, artist, buyer, amount):
 
-        self.artist_id = artist_id,
-        self.track_id = track_id,
-        self.publish_date = publish_date
-        self.buyer_id = buyer_id
 
-        self.number_of_tracks = 0 # Default
+        self.artist = artist
+        self.buyer = buyer
+        self.amount = amount
+
         self.sold = False
+
+        #self.hash = sha256

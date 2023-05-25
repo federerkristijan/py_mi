@@ -9,6 +9,7 @@ class Block:
 
         self.index = index
         self.transactions = transactions
+        #self.merkle_root = GesamtHash von allen Transactions
         self.previous_hash = previous_hash
 
         self.nonce = 0
