@@ -1,5 +1,3 @@
-# Buyer?
-
 class User():
 
     def __init__(self, id, account):

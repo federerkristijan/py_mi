@@ -1,7 +1,7 @@
 class Artist():
 
     def __init__(self, id, account, tracks):
-        pass
 
-        # wallet zuweissen
-        #account.
+       self.id = id,
+       self.account = account,
+       self.tracks = tracks

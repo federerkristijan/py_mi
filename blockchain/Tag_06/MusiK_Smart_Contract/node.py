@@ -1,4 +1,3 @@
-# generate Coins u. PoW - Sicherheit über Transaktion
 class Node:
 
     def __init__(self, address, account):
