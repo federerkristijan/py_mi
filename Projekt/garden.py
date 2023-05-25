@@ -11,6 +11,20 @@ style.theme_use('default')
 style.configure("Treeview", background="#D3D3D3", foreground="black", rowheight=25, fieldbackground="#D3D3D3")
 style.map("Treeview", background=[("selected", "#347083")])
 
+# # create a database or connect to one
+# conn = sqlite3.connect('mein_garden.db')
+# # create cursor
+# c = conn.cursor()
+
+# # create table
+# c.execute("""CREATE TABLE plants (
+#     name text,
+#     start_date integer,
+#     end_date integer,
+#     days_left integer,
+#     notes text
+# )""")
+
 class Table(tk.Toplevel):
     def __init__(self, parent=None, headings=tuple(), rows=tuple()):
         super().__init__(parent)
@@ -43,7 +57,7 @@ class SubmitWindow(tk.Toplevel):
 
     def __init__(self, master):
         super().__init__(master)
-        self.title('Eneter your data')
+        self.title('Enter your data')
 
        # labels and entry boxes
         tk.Label(self, text='Plant name:').grid(row=0, column=0, padx=5, pady=5)
