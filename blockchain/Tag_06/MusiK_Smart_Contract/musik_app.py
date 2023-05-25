@@ -8,6 +8,8 @@ from block import Block
 
 from transaktionen_musik import Transaction
 from smart_contract_musik import SmartContract
+from user import User
+from artist import Artist
 from hashlib import sha256
 
 

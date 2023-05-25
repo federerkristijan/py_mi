@@ -17,4 +17,3 @@ class SmartContract:
                     if current_transactions.track_id == transaction.track_id:
                         current_transactions.sold = True
 
-                        # send Coins to the artist (Node to )
