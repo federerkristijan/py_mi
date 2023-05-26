@@ -43,6 +43,14 @@ def transaktion():
         return render_template("index.html")
 
 
+@app.route("/mine", methods=["GET", "POST"])
+def mine():
+    pass
+
+@app.route("/blockchain", methods=["GET", "POST"])
+def blockchain():
+    pass
+
 app.run(debug=True)
 
 # Übung am Nachmittag:
