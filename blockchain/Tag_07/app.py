@@ -8,6 +8,10 @@ blockchain = []
 # Mempool
 transaktionen = []
 
+@app.route("/")
+def home():
+    user = "Peter321"
+    return render_template("index.html", username=user)
 
 # Routing
 @app.route("/transaktion", methods=["GET", "POST"]) # wichtig: hier Methoden erwähnen
