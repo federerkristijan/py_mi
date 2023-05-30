@@ -77,12 +77,12 @@ def mine(): # wichtig: hier Methoden erwähnen
 
 # 2) Route/blockchain definieren zum Auflisten der gesamten BC
     '''
-    render_template() übergibt dieBC an das HTML-Template und dort wird dank Jinj2 der Platzhalter durch eine Schleife ersetzt
+    render_template() übergibt die BC an das HTML-Template und dort wird dank Jinj2 der Platzhalter durch eine Schleife ersetzt
     '''
 @app.route("/blockchain", methods=["GET", "POST"])
 # Aufpassen auf den Nameskonlifkten
 def show_blockchain():
 
-    render_template("blockchain.html", blockchain = blockchain)
+    return render_template("blockchain.html", blockchain = blockchain)
 
 app.run(debug=True)

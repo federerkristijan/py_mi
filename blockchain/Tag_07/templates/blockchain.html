@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
-    {% comment %} https://jinja.palletsprojects.com/en/3.1.x/templates/
-    https://flask.palletsprojects.com/en/2.3.x/quickstart/#rendering-templates
-    {% endcomment %} {% for item in navigation %}
-    <h2>Index: {{block.index}}</h2>
-    <ul>
-      <li>Prev. Hash: {{block.previous_hash}}</li>
-      <li>Hash: {{block.hash}}</li>
-      <li>Timestamp: {{block.time}}</li>
-    </ul>
+</head>
+<body>
+    <!--https://flask.palletsprojects.com/en/2.3.x/quickstart/#rendering-templates
+    UND
+    https://jinja.palletsprojects.com/en/3.1.x/templates/ -->
+    {% for block in blockchain %}
+        <h2>Index: {{ block.index }}</h2>
+        <ul>
+            <li>Prev. Hash: {{ block.previous_hash }}</li>
+            <li>Hash: {{ block.hash }}</li>
+            <li>Timestamp: {{ block.time }}</li>
+        </ul>
+        <div>
+            <h4>Transaktionen:</h4>
+            {% for transaction in block.transactions %}
+            <ol>
+                <li>Sender: {{ transaction.sender }}</li>
+                <li>Empfänger: {{ transaction.receiver }}</li>
+                <li>Betrag: {{ transaction.amount }}</li>
+            </ol>
+            {% endfor %}
+        </div>
+        <hr>
     {% endfor %}
-    <div>
-      <h4>Transaktionen:</h4>
-      {% for transactions in block.transactions %}
-      <ol>
-        <li>Sender: {{ transaction.sender }}</li>
-        <li>Receiver: {{ transaction.receiver }}</li>
-        <li>Amount: {{ transaction.amount }}</li>
-      </ol>
-      {% endfor %}
-    </div>
-  </body>
+</body>
 </html>
