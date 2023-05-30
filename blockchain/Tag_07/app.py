@@ -73,14 +73,16 @@ def mine(): # wichtig: hier Methoden erwähnen
     # Mempool leeren
     transaktionen = []
 
+    return "Block mit Index {} wurde gemined.".format(len(blockchain) - 1)
+
+# 2) Route/blockchain definieren zum Auflisten der gesamten BC
+    '''
+    render_template() übergibt dieBC an das HTML-Template und dort wird dank Jinj2 der Platzhalter durch eine Schleife ersetzt
+    '''
 @app.route("/blockchain", methods=["GET", "POST"])
-def blockchain():
-    pass
+# Aufpassen auf den Nameskonlifkten
+def show_blockchain():
+
+    render_template("blockchain.html", blockchain = blockchain)
 
 app.run(debug=True)
-
-# Übung am Nachmittag:
-# Routes /mine und /blockchain definieren
-# bei /mine die Liste blockchain[] mit Trasaktionen füllen (Liste aus Strings oder Transaktion-Objekte)
-# bei /blockchain die Blockchain auslesen (per Konsole oder HTML)
-# Gemeinsame Besprechung dann am Dienstag Vormittag (Montag Feiertag)

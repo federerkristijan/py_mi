@@ -17,6 +17,14 @@
       <li>Timestamp: {{block.time}}</li>
     </ul>
     {% endfor %}
-    <div>TODO! Transaktionen: hier folgen die Transaktionen eines jew. Blocks</div>
+    <div>
+      <h4>Transaktionen:</h4>
+      {% for transactions in block.transactions %}
+      <ol>
+        <li>Sender: {{ transaction.sender }}</li>
+        <li>Receiver: {{ transaction.receiver }}</li>
+        <li>Amount: {{ transaction.amount }}</li>
+      </ol>
+    </div>
   </body>
 </html>
