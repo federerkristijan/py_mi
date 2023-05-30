@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  {% comment %}
-  https://jinja.palletsprojects.com/en/3.1.x/templates/
-
-  https://flask.palletsprojects.com/en/2.3.x/quickstart/#rendering-templates
-  {% endcomment %}
-    {% for item in navigation %}
-        <h2>Index: block.index</h2>
-        
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% comment %} https://jinja.palletsprojects.com/en/3.1.x/templates/
+    https://flask.palletsprojects.com/en/2.3.x/quickstart/#rendering-templates
+    {% endcomment %} {% for item in navigation %}
+    <h2>Index: {{block.index}}</h2>
+    <ul>
+      <li>Prev. Hash: {{block.previous_hash}}</li>
+      <li>Hash: {{block.hash}}</li>
+      <li>Timestamp: {{block.time}}</li>
+    </ul>
     {% endfor %}
-</body>
+    <div>TODO! Transaktionen: hier folgen die Transaktionen eines jew. Blocks</div>
+  </body>
 </html>
