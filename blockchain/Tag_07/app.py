@@ -12,6 +12,13 @@ blockchain = []
 # Mempool
 transaktionen = []
 
+'''
+1. https://gist.github.com/colonialars/49c2eb6eef97a4d0b29bd986f30f0b89
+2. https://gist.github.com/colonialars/4300316909e2a2cba3e76de7d70e63ec
+3. https://gist.github.com/colonialars/298172b7004acd9c6e726716ba496465
+4. https://gist.github.com/colonialars/a9a4fe50f6c4dedd14346847fa9a76ae
+'''
+
 # @app.route("/")
 # def home():
 #     user = "Peter321"
@@ -65,7 +72,7 @@ def mine(): # wichtig: hier Methoden erwähnen
     else:
         previous_hash = blockchain[-1].hash
 
-    # Hash vereinfacht ohne PoW mit laufender Nummer per Anzahl der Elemente als EIngabe für sha256
+    # Hash vereinfacht ohne PoW mit laufender Nummer per Anzahl der Elemente als Eingabe für sha256
     hash = sha256(str(len(blockchain)).encode("utf-8")).hexdigest() # zB Hash für 0,1,2,3,...
 
     blockchain.append(Block(len(blockchain), transaktionen, previous_hash, hash))
