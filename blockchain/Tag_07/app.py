@@ -8,10 +8,10 @@ blockchain = []
 # Mempool
 transaktionen = []
 
-@app.route("/")
-def home():
-    user = "Peter321"
-    return render_template("index.html", username=user)
+# @app.route("/")
+# def home():
+#     user = "Peter321"
+#     return render_template("index.html", username=user)
 
 # Routing
 @app.route("/transaktion", methods=["GET", "POST"]) # wichtig: hier Methoden erwähnen
@@ -28,7 +28,7 @@ def transaktion():
 
         receiver = request.form["receiver"]
 
-        amount = [request.form["amount"]]
+        amount = request.form["amount"]
 
         # Testausgabe in der Konsole
         print(sender, receiver, amount)
