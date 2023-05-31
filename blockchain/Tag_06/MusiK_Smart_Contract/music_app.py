@@ -1,6 +1,6 @@
 # Hier kommt alles zusammen
-import random
 import datetime # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+from flask import Flask, render_template,request
 
 import daten_variablen
 
@@ -14,6 +14,7 @@ from music_artist import Artist
 from music_track import Track
 from hashlib import sha256
 
+app = Flask(__name__)
 
 # BC erzeugen
 blockchain = []
