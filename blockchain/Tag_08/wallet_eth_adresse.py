@@ -5,6 +5,8 @@
 # 3. ETH-Adresse: wird aus dem Public Key abgeleitet (Hashfunktion: Keccak-256-Algo -> hashlib.sha3_256
 
 # https://etherscan.io/
+# https://www.coingecko.com/
+# ens.domains
 
 import hashlib
 import ecdsa
