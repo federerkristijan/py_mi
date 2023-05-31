@@ -4,9 +4,10 @@
 # 2. Public Key: wird aus dem Private Key abgeleitet (elliptische Kurve SECP256k1)
 # 3. ETH-Adresse: wird aus dem Public Key abgeleitet (Hashfunktion: Keccak-256-Algo -> hashlib.sha3_256
 
+# https://etherscan.io/
+
 import hashlib
 import ecdsa
-import base58
 
 class Wallet:
     def __init__(self):
