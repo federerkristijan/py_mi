@@ -4,19 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Music App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-gray-200">
-    <div class="bg-slate-200">
-      <nav class="flex justify-center space-x-4 border-b-4 border-indigo-500">
-        <a href="/dashboard" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</a>
-        <a href="/team" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Team</a>
-        <a href="/projects" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Projects</a>
-        <a href="/reports" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reports</a>
-      </nav>
-      <div class="bg-gray-200">
-        <h1>Hello World!</h1>
+    <nav class="flex justify-end gap-20 mr-5">
+      <a
+        href="/dashboard"
+        class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 border-b-2 border-indigo-500"
+        >Home</a
+      >
+      <a
+        href="/team"
+        class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 border-b-2 border-indigo-500"
+        >Team</a
+      >
+      <a
+        href="/projects"
+        class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 border-b-2 border-indigo-500"
+        >Projects</a
+      >
+      <a
+        href="/reports"
+        class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 border-b-2 border-indigo-500"
+        >Reports</a
+      >
+    </nav>
+    <div class="flex justify-center">
+      <h1 class="mt-12 text-5xl">Welcome to the shop!</h1>
+      <div class="search-container flex justify-start mt-64">
+        <form action="/search" method="GET">
+          <input type="text" name="query" placeholder="Search..." />
+          <button type="submit">Search</button>
+        </form>
       </div>
     </div>
   </body>
