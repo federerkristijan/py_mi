@@ -521,10 +521,3 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-
-@tailwind componenets;
-
-body {
-  margin: 0;
-  padding: 0;
-}
