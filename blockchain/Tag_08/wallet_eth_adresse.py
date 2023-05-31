@@ -1,8 +1,8 @@
 #Blockchain mit Generierung der ETH-Adresse
 # ETH:
 # 1. Private Key: 256-Bit-Zahl (random)
-# 2. Public Key: wird aus dem Private Key abgelietet
-# 3. ETH-Adresse: wird aus dem Public Key abgeleitet
+# 2. Public Key: wird aus dem Private Key abgeleitet (elliptische Kurve SECP256k1)
+# 3. ETH-Adresse: wird aus dem Public Key abgeleitet (Hashfunktion: Keccak-256-Algo -> hashlib.sha3_256
 
 import hashlib
 import ecdsa
@@ -25,28 +25,9 @@ class Wallet:
 
     def public_key_to_address(self):
         # Hash public key
-        public_key_hash = hashlib.sha256(self.public_key).digest()
-
-        # Perform RIPEMD-160 hashing
-        ripemd160 = hashlib.new('ripemd160')
-        ripemd160.update(public_key_hash)
-        hashed_public_key = ripemd160.digest()
-
-        # Add version byte (0x00)
-        version_byte = b'\x00'
-        hashed_public_key_with_version = version_byte + hashed_public_key
-
-        # Perform double SHA-256 hashing
-        sha256_hash = hashlib.sha256(hashed_public_key_with_version).digest()
-        double_sha256_hash = hashlib.sha256(sha256_hash).digest()
-
-        # Checksum (4 bytes)
-        checksum = double_sha256_hash[:4]
-        address_bytes = hashed_public_key_with_version + checksum
-
-        # Encode durch Base58
-        address = base58.b58encode(address_bytes)
-        return address.decode('utf-8')
+        public_key_hash = hashlib.sha3_256(self.public_key).digest() # sha3_256 in ETH!
+        address = '0x' + hashlib.new('ripemd160', public_key_hash).hexdigest()
+        return address
 
 class Transaction:
     def __init__(self, sender, receiver, amount):
