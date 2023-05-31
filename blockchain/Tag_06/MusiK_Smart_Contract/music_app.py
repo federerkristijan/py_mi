@@ -56,3 +56,11 @@ print("Buyer1:", buyer1.__dict__)
 transaction1 = Transaction(artist1, buyer1, "")
 
 print(transaction1.__dict__)
+
+# Routing
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+if __name__ == '__main__':
+    app.run(debug=True)
