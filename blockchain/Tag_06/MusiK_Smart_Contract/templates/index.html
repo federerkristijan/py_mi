@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
   </head>
-  <body class="">
+  <body class="bg-no-repeat bg-cover" style="background-image: url(/static/images/background_1.jpeg)">
     <div class="navbar flex justify-between border-b-2 mt-2">
       <div class="search-container flex start mt-4 ml-12 gap-4 w-max">
         <form action="/search" method="GET">
@@ -42,7 +42,7 @@
         >
       </nav>
     </div>
-    <div class="page flex flex-col justify-center" style="background-image: url({{ url_for('static', filename='images/background_1.jpeg') }})">
+    <div class="page flex flex-col justify-center" >
       <h1 class="mt-2 text-5xl flex justify-center">
         Welcome to the shop!
       </h1>
