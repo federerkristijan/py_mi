@@ -201,7 +201,11 @@ table {
 3. Remove default padding in all browsers.
 */
 
-button,
+button {
+  --tw-bg-opacity: 1;
+  background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
+}
+
 input,
 optgroup,
 select,
@@ -242,7 +246,8 @@ button,
 [type='submit'] {
   /* -webkit-appearance: button; */
   /* 1 */
-  background-color: transparent;
+	--tw-bg-opacity: 1;
+  background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
   /* 2 */
   background-image: none;
   /* 2 */
